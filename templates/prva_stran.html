@@ -1,0 +1,35 @@
+{% extends "osnova.html" %}
+
+{% block vsebina %}
+<h1>Dobrodošli na moji spletni strani</h1>
+
+{% if ime %}
+
+    <p>Prijavljen si pod imenom {{ ime }}</p>
+
+    <form method="POST" action="/komentar">
+        <textarea name="vsebina" placeholder="Vpiši komentar"></textarea>
+        <br>
+        <button type="submit">Pošlji</button>
+    </form>
+
+    <h2>Komentarji</h2>
+
+    {% for komentar in komentarji %}
+    <p><strong>{{ komentar.avtor }}:</strong> {{ komentar.vsebina }}
+
+    </p>
+    {% endfor %}
+
+{% else %}
+
+    <p>Prijavi se:</p>
+    <form method="POST" action="/prijava">
+        <input name="ime" placeholder="Tvoje ime">
+        <input type="password" name="geslo" placeholder="Tvoje geslo">
+        <button type="submit">Prijava</button>
+    </form>
+
+{% endif %}
+
+{% endblock %}

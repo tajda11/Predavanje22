@@ -1,0 +1,12 @@
+{% extends "osnova.html" %}
+
+{% block vsebina %}
+    <h1>Kontakt</h1>
+
+    <form method="post" action="/poslji-sporocilo">
+        <p>Zadeva: <input name="zadeva"></p>
+        <p>Sporočilo: <input name="sporocilo"></p>
+        <p><button type="submit">Pošlji</button></p>
+    </form>
+
+{% endblock %}
